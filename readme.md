@@ -58,17 +58,17 @@
 ### players
 
 1. Get all players - 
-    * `/api/players`
+    * `http://localhost:5445/api/players`
 2. Get player by id - 
-    * `/api/players/${id}`
+    * `http://localhost:5445/api/players/${id}`
 3. Get player by name - 
-    * `/api/players/${playerName}`
+    * `http://localhost:5445/api/players/${playerName}`
 4. Get players by filter querystring (all optional, not required): 
-    * `/api/players/filter?`
+    * `http://localhost:5445/api/players/filter?`
     
     params:
     * `team=${teamName}`
-    * `pos=${player-position}`              // F | F M | M | D M | S | D | GK
+    * `pos=${player-position}`                 F | F M | M | D M | S | D | GK
     * `minGoals=${number}`
     * `maxGoals=${number}`
     * `minAsts=${number}`
@@ -80,6 +80,6 @@
 
 
 ### team
-1. Get all teams - `/api/teams`
-2. Get team by id - `/api/teams/${id}`
-3. Get team by name - `/api/teams/${teamName}`
+1. Get all teams - `http://localhost:5445/api/teams`
+2. Get team by id - `http://localhost:5445/api/teams/${id}`
+3. Get team by name - `http://localhost:5445/api/teams/${teamName}`
