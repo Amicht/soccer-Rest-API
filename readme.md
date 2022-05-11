@@ -5,17 +5,18 @@
 
 * This project designed to create a soccer API, of all teams and players in the top 5 leagues of europe (and rossia, from some reason...).
 
-* I used the Web-scrapping method, using "puppeteer" on Node.js .
+* The data was scrapped from understat.com
+
+* I used the web-scrapping method, using "puppeteer" on Node.js .
+
+* The database contain over 3000 players and over 100 teams.
 
 * This API is meant for progremming purposes only.
-
-* The data was scrapped from understat.com
 
 
 ## Object keys documentation
 
 ### Team
-* from league route: `https://understat.com/league/${leagueName}`
 ```
 {
     no: number,                          // place number in the league 
@@ -35,7 +36,6 @@
 ```
 
 ### Player
-* from team route: `https://understat.com/team/${teamName}/${year}`
 ```
 {
     no: number,                  // place on teams best stats
