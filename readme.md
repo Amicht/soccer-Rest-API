@@ -19,7 +19,7 @@
 ### Team
 ```
 {
-    no: number,                          // place number in the league 
+    no: number,                          // rank number in the league 
     team: string,                        // team name
     matches: number,
     wins: number,
@@ -38,7 +38,7 @@
 ### Player
 ```
 {
-    no: number,                  // place on teams best stats
+    no: number,                  // rank on the team
     player: string,              // player name
     pos: F | F M | M | D | S | G K,
     apps: number,
@@ -68,7 +68,7 @@
     
     params:
     * `team=${teamName}`
-    * `pos=${player-position}`
+    * `pos=${player-position}`              // F | F M | M | D M | S | D | GK
     * `minGoals=${number}`
     * `maxGoals=${number}`
     * `minAsts=${number}`
@@ -76,7 +76,7 @@
     
     For example: `/api/players/filter?team=Barcelona&minGoals=10&pos=F`
 
-    Will return an array containing field (F) players from Barcelona that scored 10 goals or more
+    Will return an array containing forward (F) players from Barcelona that scored 10 goals or more
 
 
 ### team
