@@ -74,9 +74,11 @@
     * `minAsts=${number}`
     * `maxAsts=${number}`
     
-    For example: `/api/players/filter?team=Barcelona&minGoals=10&pos=F`
+    For example: 
+    
+    http://localhost:5445/api/players/filter?team=Barcelona&minGoals=10&pos=F
 
-    Will return an array containing forward (F) players from Barcelona that scored 10 goals or more
+    Will return an array containing all forward (F) players from Barcelona that scored 10 goals or more
 
 
 ### team
