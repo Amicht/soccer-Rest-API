@@ -63,7 +63,11 @@
     * `http://localhost:5445/api/players/${id}`
 3. Get player by name - 
     * `http://localhost:5445/api/players/${playerName}`
-4. Get players by filter querystring (all optional, not required): 
+4. Get top scorer player - 
+    * `http://localhost:5445/api/players/top/scorer`
+5. Get top assist player - 
+    * `http://localhost:5445/api/players/top/assists`
+6. Get players by filter querystring (all optional, not required): 
     * `http://localhost:5445/api/players/filter?`
     
     params:

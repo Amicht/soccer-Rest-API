@@ -29,6 +29,15 @@ playersCtrl.get('/:id([0-9]+)',async (req,res,next)=>{
     }
     catch(err){next(err)}
 })
+// currently only 'scorer' / 'assists'
+playersCtrl.get('/top/:topParam',async (req,res,next)=> {
+    try{
+        const player = await logic.getTopPlayer(req.params.topParam);
+        if(!player) return next(new ErrorModel(404,`Route not found`));
+        res.json(player);
+    }
+    catch(err){next(err)}
+});
 
 playersCtrl.get('/:name',async (req,res,next)=> {
     try{

@@ -30,6 +30,28 @@ async function getPlayersFilter(search){
     return data;
 }
 
+const getTopPlayer = async(searchParam)=>{
+    let result;
+    let data = await dal.getAllPlayersAsync();
+    if(searchParam === 'scorer') result = topScorerAssists(data,'goals');
+    if(searchParam === 'assists') result = topScorerAssists(data,'assists');
+    if(!result) return null;
+    return result;
+}
+
+function topScorerAssists(data, param){
+    let counter = 0;
+    let player = [];
+    data.forEach(p => {
+        if(p[param] > counter){
+            player = [p];
+            counter = p[param];
+        }
+        else if(p[param] === counter) player.push(p);
+    })
+    return player;
+};
+
 module.exports = {
     getPlayersFilter,
     getAllPlayersAsync,
@@ -37,5 +59,6 @@ module.exports = {
     getTeamByIDAsync,
     getPlayerByIDAsync,
     getPlayerByNameAsync,
-    getTeamByNameAsync
+    getTeamByNameAsync,
+    getTopPlayer
 }
