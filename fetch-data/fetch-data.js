@@ -14,5 +14,4 @@ const leagueData = {};
     }
     return leagueData;
 })(0)
-    .then(data => fs.writeFile('db.json',JSON.stringify(data)));
-*/
+    .then(data => fs.writeFile('db.json',JSON.stringify(data,null,4)));

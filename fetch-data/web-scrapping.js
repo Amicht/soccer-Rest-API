@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 const getTeamURL = require('./builder').teamUrl;
 
 async function getTeamData(url){
-    const browser = await puppeteer.launch({headless:true}); 
+    const browser = await puppeteer.launch({headless:false}); 
     const page = await browser.newPage();
     await page.goto(url);
     const teamData =  await page.evaluate(async() =>{
@@ -91,4 +91,3 @@ module.exports = {
 
 
 
-*/
