@@ -1,5 +1,5 @@
 const fs = require('fs');
-const db = require('../db.json');
+const db = require('../src/server/1-database/db.json');
 
 const leagues = ["La liga","Bundesliga","EPL","Serie A","Ligue 1","RFPL"];
 const players = [];
@@ -10,6 +10,7 @@ Object.values(db).forEach((lg,i) => {
         t.league = leagues[i];
         t.id = teams.length;
         t.players.forEach(p => {
+            if(p.player === "") return;
             p.team = t.team;
             p.id = players.length;
             players.push(p);
@@ -18,5 +19,5 @@ Object.values(db).forEach((lg,i) => {
         teams.push(t);
     })
 });
-fs.writeFileSync('./teams.json',JSON.stringify(teams,null,4));
-fs.writeFileSync('./players.json',JSON.stringify(players,null,4));
+fs.writeFileSync('./src/server/1-database/teams.json',JSON.stringify(teams,null,4));
+fs.writeFileSync('./src/server/1-database/players.json',JSON.stringify(players,null,4));

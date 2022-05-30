@@ -30,8 +30,9 @@
     pts: number,
     xG: number,                          // expected goals
     xGA: number,                         // expected goals against
-    xPTS: number                         // expected points
-    players: []                          // array of all team's players
+    xPTS: number                         // expected points  
+    league: string,
+    id: number                  
 }
 ```
 
@@ -51,6 +52,8 @@
     xA: number,                  
     xG90: number,                // expected goals per 90 minutes
     xA90: number                 // expected assists per 90 minutes
+    id: number,
+    team: string
 }
 ```
 
