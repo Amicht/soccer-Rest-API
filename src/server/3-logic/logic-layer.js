@@ -1,25 +1,8 @@
-const dal = require('../2-data-access-layer/dal');
+const ErrorModel = require('../models/error-model');
 
-const getAllPlayersAsync = async() => dal.getAllPlayersAsync()
-.then(res => res? res:null);
 
-const getPlayerByIDAsync = async(id)=> dal.getAllPlayersAsync()
-    .then(res => res.find(p => p.id === id)).then(res => res?res:null);
-
-const getPlayerByNameAsync = async(name) => dal.getAllPlayersAsync()
-    .then(res => res.find(t => t.player === name)).then(res => res?res:null);
-
-const getAllTeamsAsync = async() => 
-    dal.getAllTeamsAsync().then(res => res?res:null);
-
-const getTeamByIDAsync = async(id) => dal.getAllTeamsAsync()
-    .then(res => res.find(t => t.id === id)).then(res=> res?res:null);
-
-const getTeamByNameAsync = async(name) => dal.getAllTeamsAsync()
-    .then(res=>res.find(t => t.team === name)).then(res=>res?res:null);
-
-async function getPlayersFilter(search){
-    let data = await dal.getAllPlayersAsync();
+const getPlayersFilter = async(data, search) => {
+    //let data = await dal.getAllPlayersAsync();
     if(search.team) data = data.filter(p => p.team === search.team);
     if(search.pos) data = data.filter(p => p.pos === search.pos);
     if(search.minGoals) data = data.filter(p => p.goals >= search.minGoals);
@@ -30,12 +13,11 @@ async function getPlayersFilter(search){
     return data;
 }
 
-const getTopPlayer = async(searchParam)=>{
+const getTopPlayer = async(data, searchParam)=>{
     let result;
-    let data = await dal.getAllPlayersAsync();
     if(searchParam === 'scorer') result = topScorerAssists(data,'goals');
     if(searchParam === 'assists') result = topScorerAssists(data,'assists');
-    if(!result) return null;
+    if(!result) throw new ErrorModel(404, 'route dont exists');
     return result;
 }
 
@@ -54,11 +36,5 @@ function topScorerAssists(data, param){
 
 module.exports = {
     getPlayersFilter,
-    getAllPlayersAsync,
-    getAllTeamsAsync,
-    getTeamByIDAsync,
-    getPlayerByIDAsync,
-    getPlayerByNameAsync,
-    getTeamByNameAsync,
     getTopPlayer
 }

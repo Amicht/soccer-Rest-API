@@ -1,4 +1,3 @@
-/*
 const baseURL = 'https://understat.com/';
 
 const leagueUrl = leagueName => baseURL + 'league/'+ leagueName;
