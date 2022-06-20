@@ -1,7 +1,6 @@
 const builder = require('./builder');
 const scrapper = require('./web-scrapping');
 const insertDB = require('./insert-data-to-db');
-const fs = require('fs/promises');
 const fixAPI = require('./fix-api');
 const leagues = ["La_liga","Bundesliga","EPL","Serie_A","Ligue_1","RFPL"];
 
