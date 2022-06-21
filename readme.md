@@ -57,38 +57,38 @@
 }
 ```
 
-## API fetch documentation 
-### players
+## API ENDPOINTS docs
+### Players
 
 1. Get all players - 
-    * `http://localhost:5445/api/players`
+    * `/api/players`
 2. Get player by id - 
-    * `http://localhost:5445/api/players/${id}`
+    * `/api/players/${playerId}`
 3. Get player by name - 
-    * `http://localhost:5445/api/players/${playerName}`
-4. Get top scorer player - 
-    * `http://localhost:5445/api/players/top/scorer`
+    * `/api/players/${playerName}`
+4. Get top scorrer player - 
+    * `/api/players/top/scorrer`
 5. Get top assist player - 
-    * `http://localhost:5445/api/players/top/assists`
-6. Get players by filter querystring (all optional, not required): 
-    * `http://localhost:5445/api/players/filter?`
+    * `/api/players/top/assists`
+6. Get players by position    F | F M | M | D M | S | D | GK
+    * `/api/players/position/{positionInitials}`
+7. Get players by team
+    * `/api/players/team/{teamName}`
+8. Get players by filter querystring (all optional, not required): 
+    * `/api/players/filter?`
     
-    params:
-    * `team=${teamName}`
-    * `pos=${player-position}`                 F | F M | M | D M | S | D | GK
-    * `minGoals=${number}`
-    * `maxGoals=${number}`
-    * `minAsts=${number}`
-    * `maxAsts=${number}`
-    
+    params:               
+    * `minGoals={number}`
+    * `minAssists={number}`
+    `
     For example: 
     
-    http://localhost:5445/api/players/filter?team=Barcelona&minGoals=10&pos=F
+    /api/players/filter?minGoals=10&minAssists=15
 
-    Will return an array containing all forward (F) players from Barcelona that scored 10 goals or more
+    Will return an array containing all players scored 10 goals or more and have 15 assists or more 
 
 
-### team
-1. Get all teams - `http://localhost:5445/api/teams`
-2. Get team by id - `http://localhost:5445/api/teams/${id}`
-3. Get team by name - `http://localhost:5445/api/teams/${teamName}`
+### Teams
+1. Get all teams - `/api/teams`
+2. Get team by id - `/api/teams/{teamId}`
+3. Get team by name - `/api/teams/{teamName}`
