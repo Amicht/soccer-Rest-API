@@ -14,5 +14,4 @@ server.use('/api/players',playersCtrl);
 server.use('*',(req,res,next)=> next(new ErrorModel(404,'Route not found')));
 server.use(errorHandler);
 
-
 server.listen(process.env.PORT, ()=> console.log(`Listening...`));
