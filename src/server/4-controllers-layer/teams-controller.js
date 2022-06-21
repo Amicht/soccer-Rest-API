@@ -1,32 +1,35 @@
 const express = require('express');
 const teamsCtrl = express.Router();
-const logic = require('../3-logic/logic-layer');
+const dal = require('../2-data-access-layer/dal');
 const ErrorModel = require('../models/error-model');
 
 
 teamsCtrl.get('/',async (req,res,next)=> {
     try{
-        const teams = await logic.getAllTeamsAsync();
-        if(!teams) return next(new ErrorModel(404,'No results'));
-        res.json(teams);
+        dal.getAllTeamsAsync((err,teams) => {
+            if(!teams) return next(new ErrorModel(404,'No results'));
+            res.json(teams);
+        });
     }
     catch(err){next(err)}
 });
 
 teamsCtrl.get('/:id([0-9]+)',async (req,res,next)=>{
     try{
-        const team = await logic.getTeamByIDAsync(+req.params.id);
-        if(!team) return next(new ErrorModel(404,`No results for id ${req.params.id}`));
-        res.json(team);
+        dal.getTeamByIdAsync(+req.params.id, (err, team)=> {
+            if(!team) return next(new ErrorModel(404,`No results for id ${req.params.id}`));
+            res.json(team[0]);
+        });
     }
     catch(err){next(err)}
 });
 
 teamsCtrl.get('/:name',async (req,res,next)=> {
     try{
-        const team = await logic.getTeamByNameAsync(req.params.name);
-        if(!team) return next(new ErrorModel(404,`No results for ${req.params.name}`));
-        res.json(team);
+        dal.getTeamByNameAsync(req.params.name,(err, team)=> {
+            if(!team) return next(new ErrorModel(404,`No results for ${req.params.name}`));
+            res.json(team[0]);
+        });
     } 
     catch(err){next(err)}
 });
