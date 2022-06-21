@@ -1,5 +1,3 @@
-const ErrorModel = require('../models/error-model');
-
 
 const getPlayersFilter = async(data, search) => {
     //let data = await dal.getAllPlayersAsync();
@@ -17,7 +15,6 @@ const getTopPlayer = async(data, searchParam)=>{
     let result;
     if(searchParam === 'scorer') result = topScorerAssists(data,'goals');
     if(searchParam === 'assists') result = topScorerAssists(data,'assists');
-    if(!result) throw new ErrorModel(404, 'route dont exists');
     return result;
 }
 
