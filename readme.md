@@ -11,7 +11,7 @@
 
 * The database contain over 3000 players and over 100 teams.
 
-* This API is meant for progremming purposes only.
+* This API is meant for progremming and educational purposes only.
 
 
 ## Object keys documentation
