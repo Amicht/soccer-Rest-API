@@ -13,6 +13,10 @@
 
 * This API is meant for progremming purposes only.
 
+## Web Scrap Yourself!
+* run `npm i puppeteer` in the server 
+* run the file './fetch-data/fetch-data.js' and it will create new updated json-files/mysql-tables for current season.
+
 
 ## Object keys documentation
 
