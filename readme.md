@@ -15,6 +15,8 @@
 
 
 ## Object keys documentation
+- All keys exist in json files 
+- Mysql is missing 'xG', 'xGA', 'Xpts' keys from team, and 'sh90', 'kp90', 'xG', 'xA', 'xG90', xA90' keys from player.
 
 ### Team
 ```
