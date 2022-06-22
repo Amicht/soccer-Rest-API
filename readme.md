@@ -57,7 +57,10 @@
 }
 ```
 
-## API ENDPOINTS docs
+## API ENDPOINTS docs 
+* Use the football.sql file in './src/server/1-database/football.sql to create the sql database and tables.
+* run the node server 
+
 ### Players
 
 1. Get all players - 
